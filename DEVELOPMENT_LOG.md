@@ -154,10 +154,28 @@ Challenges:
 
 ## Summary
 
-**Total time spent on assignment**: [X hours]
+Total time spent on assignment: 7 hours
 
-**Most challenging part**: 
+---
 
-**Most interesting learning**: 
+Most challenging part:
 
-**What I would do differently next time**: 
+Calculating waiting time for processes that re-enter the queue multiple times. The issue was tracking when each process last entered the queue, not just when it was created. Also, coordinating all three features without breaking existing functionality.
+
+---
+
+Most interesting learning:
+
+Seeing Round-Robin scheduling visually with progress bars and queue visualization helped me understand why this algorithm is popular in OS. Also learned the value of separate Git commits for each feature - made debugging much easier.
+
+---
+
+What I would do differently next time:
+
+1. Start earlier - waited too long before beginning
+2. Test each feature immediately after implementing it
+3. Use debugger instead of print statements
+4. Write comments while coding not after finishing
+5. Record video in parts instead of one long take
+
+---
