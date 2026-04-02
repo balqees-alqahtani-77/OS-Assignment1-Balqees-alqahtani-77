@@ -117,7 +117,7 @@ What I did:
 · Implemented Feature 3: Added waiting time tracking for each process
 · Added fields to track creation time, last ready time, and total waiting time
 · Calculated waiting time for each process when it starts executing
-· Created summary table to display waiting times at the end
+· Created summary table to display waiting times at the end   
 
 Details:
 I added three new fields to the Process class: creationTime, totalWaitingTime, and lastReadyTime. In the constructor, I initialize creationTime and lastReadyTime using System.currentTimeMillis(). I created a method updateWaitingTime() that calculates how long the process waited since it was last added to the ready queue. When a process re-enters the queue, I call setLastReadyTime() to record the time. At the end of the simulation, I created displayWaitingTimeSummary() which shows a table with Process Name, Burst Time, Priority, and Waiting Time for each process, plus the average waiting time.
