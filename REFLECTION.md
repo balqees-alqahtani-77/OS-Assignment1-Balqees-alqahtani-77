@@ -9,7 +9,8 @@ Answer the following questions about your learning experience. Each answer shoul
 
 **Your Answer:**
 
-[Write your answer here. Discuss specific concepts like thread creation, thread states, how threads execute concurrently, what surprised you, etc.]
+[تعلمت من هذا الواجب كيف الخيوط (threads) تشتغل بشكل متزامن داخل برنامج واحد. أول شي، عرفت إن كل thread يمثل عملية مستقلة لكنها تشارك نفس الذاكرة مع الخيوط الثانية. ثاني شي، فهمت دورة حياة الخيط (New, Runnable, Running, Waiting, Terminated) وكيف تتحكم فيها باستخدام start() و join() و sleep(). اللي فاجأني هو كيف Round-Robin scheduler يوزع الوقت الكمي (time quantum) بين العمليات بشكل عادل، وكيف الخيط "يستسلم" (yield) CPU عشان غيره يشتغل. كمان تعلمت كيف أتتبع وقت الانتظار لكل عملية باستخدام System.currentTimeMillis().
+]
 
 ---
 
@@ -17,7 +18,7 @@ Answer the following questions about your learning experience. Each answer shoul
 
 **Your Answer:**
 
-[Describe the specific challenge. Was it understanding the code? Implementing a feature? Using Git? Explain what made it difficult and how it relates to the course concepts.]
+[أصعب جزء كان حساب وقت الانتظار (waiting time) لكل عملية بشكل صحيح. المشكلة كانت لما العملية ترجع للطابور بعد ما تخلص جزئ من وقتها، كنت أحسب وقت الانتظار من أول مرة دخلت فيه الطابور مو من آخر مرة. هذا الخلل كان يسبب أرقام انتظار كبيرة جداً وغير منطقية. كمان التنسيق بين الملفين (Colors.java و SchedulerSimulation.java) كان تحدي لأن أي خطأ في استيراد الكلاسات يسبب أخطاء في الترجمة. الموضوع الثاني الصعب كان فهم متى أزيد عداد context switches بالتحديد.]
 
 ---
 
@@ -25,7 +26,7 @@ Answer the following questions about your learning experience. Each answer shoul
 
 **Your Answer:**
 
-[Describe your problem-solving approach. Did you read documentation? Ask for help? Debug systematically? What resources did you use? What strategies worked?]
+[استخدمت عدة طرق للتغلب على المشاكل. أولاً، استخدمت System.out.println() بشكل مكثف عشان أعرف وين الخلل بالضبط - كنت أطبع قيم lastReadyTime و currentTime قبل وبعد كل تحديث. ثانياً، رجعت لقراءة وثائق Java الرسمية لفهم كيف Thread.join() و Thread.sleep() تشتغل بالضبط. ثالثاً، قارنت الكود حقي مع الكود الأصلي عشان أشوف التعديلات اللي سويتها. كمان استخدمت Git commits عشان أرجع لنسخة سابقة إذا خربت شيء. أخيراً، طلبت مساعدة من زملائي في الجامعة وشرحت لهم المشكلة - أحياناً الشرح لشخص ثاني يوضح لك الحل بنفسك.]
 
 ---
 
@@ -33,7 +34,7 @@ Answer the following questions about your learning experience. Each answer shoul
 
 **Your Answer:**
 
-[Give specific examples from real applications you use (web browsers, games, mobile apps, etc.). Explain why threads are useful in those scenarios. Connect to what you learned in this assignment.]
+[في التطبيقات الواقعية، multithreading يستخدم بكثرة. مثلاً في متصفحات الويب (Chrome, Firefox): كل تبويب (tab) يشتغل في thread منفصل عشان لو تبويب واحد تعلق، ما يوقف المتصفح كامل. كمان تحميل الصور والفيديوهات يتم في خيوط خلفية عشان الواجهة تبقى سريعة. ثاني مثال: الألعاب الإلكترونية - لعبة مثل Minecraft أو Fortnite تستخدم thread منفصل للرسومات (graphics)، وآخر للصوت، وثالث لفيزياء اللعبة، ورابع للاتصال بالسيرفر. ثالث مثال: تطبيقات الجوال - لما تفتح تطبيق Instagram، التطبيق يحمل الصور والفيديوهات في خيوط خلفية عشان ما يوقف واجهة المستخدم. في هذا الواجب، طبقنا نفس المبدأ: كل عملية شغالة في thread خاص، وscheduler يديرها بشكل عادل. هذا المبدأ يسمى "responsive design" وهو أساسي في أي تطبيق حديث عشان المستخدم ما يحس بتأخير أو تعلق]
 
 ---
 
